@@ -6,6 +6,6 @@
 
 // void DLL Animacao(char);
 
-void DLL plotsin(char);
+void DLL PlotSin(float);
 
 // void DLL PlotCic(char);
