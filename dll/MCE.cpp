@@ -1,13 +1,15 @@
 #include <iostream>
 #include <cmath>
 #include <tuple>
-#include "MCE.h"
+#include "MCE.hpp"
+#include <SFML/Graphics.hpp>
 
-#define PI 3.14159265358979323
+const float PI = 3.14159265358979323f;
 
 // void Animacao(char Hz) {}
 
-std::tuple<float*, float*> PlotSin(float Hz) {
+/*/
+void PlotSin(float Hz) {
 	if (Hz == 0.0f) {
 		Hz = 1.0f;
 	};
@@ -19,8 +21,30 @@ std::tuple<float*, float*> PlotSin(float Hz) {
 		x_list[x] = x;
 		rad = (x * PI) / 180;
 		list_sin[x] = std::sin(rad);
-	};
-	return std::make_tuple(x_list, list_sin);
+	}
 }
-
+*/
 // void PlotCic(char complex) {}
+
+int main()
+{
+    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    sf::CircleShape shape(100.f);
+    shape.setFillColor(sf::Color::Green);
+
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        window.draw(shape);
+        window.display();
+    }
+
+    return 0;
+}
