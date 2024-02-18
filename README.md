@@ -2,7 +2,7 @@
 
 # MCEcpp
 
-![GitHub top language](https://img.shields.io/github/languages/top/MauricioPaivadaSilva/MCEcs) ![GitHub language count](https://img.shields.io/github/languages/count/MauricioPaivadaSilva/MCEcs) ![GitHub License](https://img.shields.io/github/license/MauricioPaivadaSilva/MCEcs) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/MauricioPaivadaSilva/MCEcs/main) ![GitHub repo size](https://img.shields.io/github/repo-size/MauricioPaivadaSilva/MCEcs)
+![GitHub top language](https://img.shields.io/github/languages/top/MauricioPaivadaSilva/MCEcpp) ![GitHub language count](https://img.shields.io/github/languages/count/MauricioPaivadaSilva/MCEcpp) ![GitHub License](https://img.shields.io/github/license/MauricioPaivadaSilva/MCEcpp) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/MauricioPaivadaSilva/MCEcpp/main) ![GitHub repo size](https://img.shields.io/github/repo-size/MauricioPaivadaSilva/MCEcpp)
 
 </div>
 
