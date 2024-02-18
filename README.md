@@ -1,6 +1,6 @@
 <div align="center">
 
-# MCEcs
+# MCEcpp
 
 ![GitHub top language](https://img.shields.io/github/languages/top/MauricioPaivadaSilva/MCEcs) ![GitHub language count](https://img.shields.io/github/languages/count/MauricioPaivadaSilva/MCEcs) ![GitHub License](https://img.shields.io/github/license/MauricioPaivadaSilva/MCEcs) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/MauricioPaivadaSilva/MCEcs/main) ![GitHub repo size](https://img.shields.io/github/repo-size/MauricioPaivadaSilva/MCEcs)
 
@@ -17,7 +17,7 @@
 </div>
 
 ## Sobre a biblioteca
-A presente biblioteca aprensenta-se em sua *versão 0.0.0*, sendo a reescrita da biblioteca [MCEpy](https://github.com/MauricioPaivadaSilva/MCEpy) em C#, com o objetivo de facilitar a implementação e a possibilidade de uso em mais trabalhos.
+A presente biblioteca aprensenta-se em sua *versão 0.0.1*, sendo a reescrita da biblioteca [MCEpy](https://github.com/MauricioPaivadaSilva/MCEpy) em C++, com o objetivo de facilitar a implementação e a possibilidade de uso em mais trabalhos.
 
 Devido a essas condições o README.md tem a mesma base e os funcionamentos da aplicação/biblioteca serão os mesmos.
 
