@@ -1,11 +1,13 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Graphics/RectangleShape.hpp>
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/System/Vector2.hpp>
-#include <SFML/Window/VideoMode.hpp>
+//#include <SFML/Graphics.hpp>
+//#include <SFML/Graphics/RectangleShape.hpp>
+//#include <SFML/Graphics/RenderWindow.hpp>
+//#include <SFML/System/Vector2.hpp>
+//#include <SFML/Window/VideoMode.hpp>
+
+#include "include/graph.hpp"
 
 int main(){
-
+/*
   const float width = 780.0f;
   const float height = 720.0f;
 
@@ -26,7 +28,10 @@ int main(){
     window.clear();
     window.draw(background);
     window.display();
-  }
+  }*/
+
+  Graph teste;
+  teste.print_HW((std::string)"Maurício");
 
   return 0;
 }

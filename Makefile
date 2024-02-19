@@ -1,11 +1,24 @@
+CC = g++
+CFLAGS = -Wall -Wextra -pedantic
+SRC_DIR = ./src
+OBJ_DIR = ./obj
+LIB_DIR = ./lib
+INCLUDE_DIR = ./include
 
+SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
+OBS_FIlES = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
+LIB_NAME = libgraph.a
+LIB_TARGET = $(LIB_DIR)/$(LIB_NAME)
 
-all: saida
-	g++ -c main.cpp
+all: $(LIB_TARGET)
 
-saida: main.o
-	g++ main.o -o graph-app -lsfml-graphics -lsfml-window -lsfml-system
+$(LIB_TARGET): $(OBS_FIlES)
+	ar rcs $@ $^
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CC) $(CFLAGS) -c -o $@ $< -I$(INCLUDE_DIR)
+
+.PHONY: clean
 
 clean:
-	rm -rf *.o
-	rm -rf graph-app
+	rm -rf $(OBJ_DIR)/*.o $(LIB_TARGET)
