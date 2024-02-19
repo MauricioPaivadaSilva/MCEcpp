@@ -6,10 +6,10 @@
 
 int main(){
 
-  const float width = 1280.0f;
+  const float width = 780.0f;
   const float height = 720.0f;
 
-  sf::RenderWindow window(sf::VideoMode(width, height), "Graph");
+  sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Graph");
   window.setPosition(sf::Vector2(0, 0));
 
   sf::RectangleShape background(sf::Vector2f(width, height));
