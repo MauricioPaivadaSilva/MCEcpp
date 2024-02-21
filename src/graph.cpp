@@ -13,18 +13,21 @@ mc::principal::principal(): window(sf::VideoMode::getDesktopMode(), "MCEcpp"){
 mc::principal::~principal(){}
 
 void mc::principal::exec(){
-  window.setPosition(sf::Vector2f(0.0f, 0.0f));
-  bg();
+  window.setPosition(sf::Vector2(0, 0));
+  sf::RectangleShape bg;
+  bg.setOutlineColor(sf::Color::White);
+  bg.setSize(sf::Vector2f(1080.0f, 720.0f));
+  bg.setPosition(0, 0);
+
   while(window.isOpen()){
     sf::Event event;
     while(window.pollEvent(event)){
       if(event.type == sf::Event::Closed){
         window.close();
       }
-    }
+    };
+    window.clear();
+    window.draw(bg);
+    window.display();
   }
-}
-
-void bg(){
-  sf::RectangleShape background()
 }
