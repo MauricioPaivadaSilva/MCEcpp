@@ -1,9 +1,15 @@
 #pragma once
 
+#include <SFML/Graphics/RenderWindow.hpp>
 #include <iostream>
 
-class Graph{
-public:
-  Graph();
-  void print_HW(const std::string&);
-};
+namespace mc{
+  class principal{
+    private:
+      sf::RenderWindow window;
+    public:
+      principal();
+      ~principal();
+      void exec();
+  };
+}
