@@ -12,5 +12,6 @@ namespace mc{
       principal();
       ~principal();
       void exec();
+      auto GraphFunc();
   };
 }

@@ -13,6 +13,22 @@ mc::principal::principal(): window(sf::VideoMode::getDesktopMode(), "MCEcpp"){
 
 mc::principal::~principal(){}
 
+auto mc::principal::GraphFunc(){
+
+  sf::Vector2u window_size = mc::principal::principal::window.getSize();
+  float w_size_x = window_size.x;
+  float w_size_y = window_size.y;
+  float pos_x = (w_size_x / 5);
+  float pos_y = (9.0f/10.0f) * (w_size_y);
+
+  sf::RectangleShape graph_func;
+  graph_func.setPosition(pos_x, pos_y);
+  graph_func.setSize(sf::Vector2f((3*pos_x), -(250.0f)));
+  graph_func.setFillColor(sf::Color::Black);
+
+  return graph_func;
+}
+
 void mc::principal::exec(){
 
   sf::Vector2u window_size = mc::principal::principal::window.getSize();
@@ -32,6 +48,7 @@ void mc::principal::exec(){
     };
     window.clear();
     window.draw(bg);
+    window.draw(mc::principal::GraphFunc());
     window.display();
   }
 }
