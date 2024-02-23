@@ -2,6 +2,7 @@
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics.hpp>
+#include <future>
 #include <iostream>
 
 #include "../include/graph.hpp"
@@ -13,10 +14,13 @@ mc::principal::principal(): window(sf::VideoMode::getDesktopMode(), "MCEcpp"){
 mc::principal::~principal(){}
 
 void mc::principal::exec(){
+
+  sf::Vector2u window_size = mc::principal::principal::window.getSize();
+
   window.setPosition(sf::Vector2(0, 0));
   sf::RectangleShape bg;
   bg.setOutlineColor(sf::Color::White);
-  bg.setSize(sf::Vector2f(1080.0f, 720.0f));
+  bg.setSize(sf::Vector2f(window_size));
   bg.setPosition(0, 0);
 
   while(window.isOpen()){
