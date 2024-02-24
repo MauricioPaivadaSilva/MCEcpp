@@ -1,4 +1,6 @@
+#include <SFML/Graphics/PrimitiveType.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/VertexArray.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics.hpp>
@@ -21,10 +23,20 @@ auto mc::principal::GraphFunc(){
   float pos_x = (w_size_x / 5);
   float pos_y = (9.0f/10.0f) * (w_size_y);
 
-  sf::RectangleShape graph_func;
-  graph_func.setPosition(pos_x, pos_y);
-  graph_func.setSize(sf::Vector2f((3*pos_x), -(250.0f)));
-  graph_func.setFillColor(sf::Color::Black);
+  sf::VertexArray graph_func(sf::LineStrip, 5);
+  graph_func[0].position = sf::Vector2f(pos_x, pos_y);
+  graph_func[1].position = sf::Vector2f((4 * pos_x), pos_y);
+  graph_func[2].position = sf::Vector2f((4 * pos_x), (pos_y - 250.0f));
+  graph_func[3].position = sf::Vector2f(pos_x, (pos_y - 250.0f));
+  graph_func[4].position = sf::Vector2f(pos_x, pos_y);
+
+  // Define a color for lines
+
+  graph_func[0].color = sf::Color::Black;
+  graph_func[1].color = sf::Color::Black;
+  graph_func[2].color = sf::Color::Black;
+  graph_func[3].color = sf::Color::Black;
+  graph_func[4].color = sf::Color::Black;
 
   return graph_func;
 }
