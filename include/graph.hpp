@@ -13,5 +13,7 @@ namespace mc{
       ~principal();
       void exec();
       auto GraphFunc();
+      auto Vector();
+      auto Arrow();
   };
 }
