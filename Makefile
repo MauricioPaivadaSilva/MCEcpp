@@ -22,5 +22,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 
 .PHONY: clean
 
+main-cpp:
+	g++ -o graph main.cpp -I./include -L./lib -lgraph -Wl,-rpath=./lib
+
 clean:
 	rm -rf $(OBJ_DIR)/*.o $(LIB_TARGET)

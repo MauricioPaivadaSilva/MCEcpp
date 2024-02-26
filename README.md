@@ -39,10 +39,13 @@ O presente projeto tem como motivação o trabalho desenvolvido pelo LABin - Lab
 
 |Dependencia | Versão|
 |---|---|
+| SFML | 2.6.1 |
 
 </div>
 
 ### Forma de Instalação
+
+Dentro do diretório do projeto digite o comando `make`. Ele irá compilar os arquivos do projeto.
 
 ## Funcionalidades esperadas
 
@@ -63,9 +66,29 @@ O presente projeto tem como motivação o trabalho desenvolvido pelo LABin - Lab
 
 * Chmada da lib:
 
+```cpp
+
+#include "include/graph.hpp"
+
+```
+
+Lembrando que neste caso o arquivo que você está criando está **no mesmo** diretório da biblioteca.
+
+<!--
 Lembrando que **todos** os dados devem ser inseridos como _str_. Assim como o parametro `"None"` **deve** ser mantido como segundo argumento, caso seja alterado, a lib irá trabalhar em modo de teste, gerando dados e salvando os mesmos.
 
 Pode ser atribuido como valor imaginário tanto _i_ como _j_. E no caso dos gráficos animados, é necessário inserir _Hz_ após o valor, como no exemplo.
+-->
+
+* Quando for compilar o seu programa e for utilizar a biblioteca, digite o comando:
+
+```bash
+
+$ g++ -o <seu_programa> <seu_programa.cpp> -I./include -L./lib -lgraph -Wl,-rpath=./lib
+
+```
+
+Lembre de trocar o <seu_programa> pelo nome que você irá dar ao programa que deseja, e troque <seu_programa.cpp> pelo nome do arquivo principal do seu programa.
 
 <div align="center">
 

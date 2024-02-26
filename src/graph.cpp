@@ -4,8 +4,6 @@
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics.hpp>
-#include <future>
-#include <iostream>
 
 #include "../include/graph.hpp"
 
@@ -90,6 +88,10 @@ void mc::principal::exec(){
 
   while(window.isOpen()){
     sf::Event event;
+    sf::Vector2u window_size = mc::principal::principal::window.getSize();
+    if((window_size.x < 800) && (window_size.y < 600)){
+      mc::principal::principal::window.setSize(sf::Vector2u(800, 600));
+    };
     while(window.pollEvent(event)){
       if(event.type == sf::Event::Closed){
         window.close();
