@@ -1,8 +1,8 @@
 #include <cmath>
 
-#include "../include/graph.hpp"
+#include "../include/sin.hpp"
 
-std::vector<double> mc::sin::Sin(double hz){
+void mc::sin::sin::Sin(double hz){
   double Hz;
   Hz = hz;
   if(Hz <= 0){
@@ -24,6 +24,4 @@ std::vector<double> mc::sin::Sin(double hz){
     y = std::sin(rad);
     data[i] = y;
   };
-
-  return data;
 }

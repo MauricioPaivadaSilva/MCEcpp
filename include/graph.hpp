@@ -14,8 +14,4 @@ namespace mc{
       auto Vector();
       auto Arrow();
   };
-  class sin{
-    public:
-      std::vector<double> Sin(double hz);
-  };
 }
