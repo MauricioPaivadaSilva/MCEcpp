@@ -1,8 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics/RenderWindow.hpp>
-#include <future>
-#include <iostream>
 
 namespace mc{
   class principal{
@@ -15,5 +13,9 @@ namespace mc{
       auto GraphFunc();
       auto Vector();
       auto Arrow();
+  };
+  class sin{
+    public:
+      std::vector<double> Sin(double hz);
   };
 }
