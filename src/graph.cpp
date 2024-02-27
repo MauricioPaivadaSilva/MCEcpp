@@ -8,8 +8,6 @@
 
 #include "../include/graph.hpp"
 
-sf::VertexArray L_FUNC;
-
 mc::principal::principal(): window(sf::VideoMode::getDesktopMode(), "MCEcpp"){
   exec();
 }
@@ -30,23 +28,19 @@ auto mc::principal::funcSin(){//Gerador dos dados para a criação do gráfico s
   };
 
 
+  auto test = mc::principal::position();
+
+
   sf::VertexArray l_func(sf::LineStrip, (int)cic);
-/*  l_func[0].position = sf::Vector2f(15.0f, 15.0f);
-  l_func[0].color = sf::Color::Blue;
-  l_func[1].position = sf::Vector2f(20.0f, 100.0f);
-  l_func[1].color = sf::Color::Blue;
-  l_func[2].position = sf::Vector2f(30.0f, 100.0f);
-  */l_func[2].color = sf::Color::Blue;
   val_x = 0.0f;
 
   
   for(int i = 0; i < (int)cic; i++){
-    l_func[i].position = sf::Vector2f(val_x, ((data[i] * 10.0f) + 100.0f));
+    l_func[i].position = sf::Vector2f(val_x, ((pos_x + (data[i] * 10.0f)) + 100.0f));
     l_func[i].color = sf::Color::Blue;
     val_x += 1.0f;
   };
 
-  L_FUNC = l_func;
   return l_func;
 }
 
