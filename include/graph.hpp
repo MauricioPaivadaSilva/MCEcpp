@@ -7,7 +7,6 @@ namespace mc{
   class principal{
     private:
       sf::RenderWindow window;
-      auto position();
     public:
       principal();
       ~principal();
@@ -16,5 +15,6 @@ namespace mc{
       auto Vector();
       auto Arrow();
       auto funcSin();
+      void position();
   };
 }

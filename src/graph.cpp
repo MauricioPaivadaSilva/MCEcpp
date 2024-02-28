@@ -8,51 +8,54 @@
 
 #include "../include/graph.hpp"
 
+float POS_X, POS_Y;
+
 mc::principal::principal(): window(sf::VideoMode::getDesktopMode(), "MCEcpp"){
+  position();
   exec();
 }
 
 auto mc::principal::funcSin(){//Gerador dos dados para a criação do gráfico senoidal.
-  float Hz, cic, val_x;
-  Hz = 60.0f;
+  float Hz, cic, val_x, pos_x, pos_y, point;
+  Hz = 3.0f;
   cic = Hz*360.0f;
   float data[(int)cic];
+  point = 0.0f;
+
+  pos_x = POS_X;
+  pos_y = POS_Y;
 
   for(int i = 0; i < (int)cic; i++){
-    float rad;
-    float y;
+    float rad, y;
     const float PI = 3.14f;
-    rad = ((float)i*PI)/180.0f;
-    y = std::sin(2.0f * PI * (rad/(1.0f/Hz)));
+    rad = (-point*PI)/180.0f;
+    y = std::sin(10.0f * rad);
     data[i] = y;
+    point += 0.1f;
   };
-
-
-  auto test = mc::principal::position();
-
 
   sf::VertexArray l_func(sf::LineStrip, (int)cic);
   val_x = 0.0f;
 
   
   for(int i = 0; i < (int)cic; i++){
-    l_func[i].position = sf::Vector2f(val_x, ((pos_x + (data[i] * 10.0f)) + 100.0f));
+    l_func[i].position = sf::Vector2f((pos_x + val_x), ((pos_y-125.0f) + (data[i] * 100.0f)));
     l_func[i].color = sf::Color::Blue;
-    val_x += 1.0f;
+    val_x += ((4*pos_x)/cic);
   };
 
   return l_func;
 }
 
-auto mc::principal::position(){ //Função para gerar os dados da posição do gráfico.
+void mc::principal::position(){ //Função para gerar os dados da posição do gráfico.
   sf::Vector2u window_size = mc::principal::principal::window.getSize();
   float w_size_x = window_size.x;
   float w_size_y = window_size.y;
   float pos_x = (w_size_x/5);
   float pos_y = (9.0f/10.0f) * (w_size_y);
 
-  std::vector<float> position = {pos_x, pos_y};
-  return position;
+  POS_X = pos_x;
+  POS_Y = pos_y;
 }
 
 mc::principal::~principal(){}
