@@ -115,4 +115,4 @@ Lembre de trocar o <seu_programa> pelo nome que você irá dar ao programa que d
 
 ## Agradecimentos
 
- Assim como no ![README.md](https://github.com/MauricioPaivadaSilva/MCEpy) quero agradecer a minha pedagoga e orientadora do PIBIC, Ma. Flávia Manuella de Almeida Ksiaszczyk, por proporcionar a oportunidade de gerar tal trabalho. Agradeço também ao meu professor de física Prof. Dr. Rudinei Celso de Souza Jantsch que nos auxiliou com interpretações físicas dos fenômenos elétricos de forma mais aprofundada. E por fim agradeço também ao Prof. Me. Cláudio Kleina, que me auxiliou com problemas ligados a programação do OA.
+ Assim como no [README.md](https://github.com/MauricioPaivadaSilva/MCEpy) quero agradecer a minha pedagoga e orientadora do PIBIC, Ma. Flávia Manuella de Almeida Ksiaszczyk, por proporcionar a oportunidade de gerar tal trabalho. Agradeço também ao meu professor de física Prof. Dr. Rudinei Celso de Souza Jantsch que nos auxiliou com interpretações físicas dos fenômenos elétricos de forma mais aprofundada. E por fim agradeço também ao Prof. Me. Cláudio Kleina, que me auxiliou com problemas ligados a programação do OA.
