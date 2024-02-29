@@ -17,7 +17,7 @@
 </div>
 
 ## Sobre a biblioteca
-A presente biblioteca aprensenta-se em sua *versão 0.1.0*, sendo a reescrita da biblioteca [MCEpy](https://github.com/MauricioPaivadaSilva/MCEpy) em C++, com o objetivo de facilitar a implementação e a possibilidade de uso em mais trabalhos.
+A presente biblioteca aprensenta-se em sua *versão 0.1.1*, sendo a reescrita da biblioteca [MCEpy](https://github.com/MauricioPaivadaSilva/MCEpy) em C++, com o objetivo de facilitar a implementação e a possibilidade de uso em mais trabalhos.
 
 Devido a essas condições o README.md tem a mesma base e os funcionamentos da aplicação/biblioteca serão os mesmos.
 
@@ -40,6 +40,7 @@ O presente projeto tem como motivação o trabalho desenvolvido pelo LABin - Lab
 |Dependencia | Versão|
 |---|---|
 | SFML | 2.6.1 |
+| g++ | 13.2.1 |
 
 </div>
 
@@ -51,7 +52,8 @@ Dentro do diretório do projeto digite o comando `make`. Ele irá compilar os ar
 
 - [ ] Receber dados de valores puramente reais;
 - [ ] Receber dados de números complexos;
-- [ ] Gerar o gráfico de função senoidal;
+- [X] Receber os dados de frequência;
+- [X] Gerar o gráfico de função senoidal;
 - [ ] Gerar o ciclo trigonométrico;
 - [ ] Gerar o vetor dentro do ciclo trigonométrico;
 - [ ] Apresentar mais de um gráfico em uma única tela;
@@ -69,7 +71,20 @@ Dentro do diretório do projeto digite o comando `make`. Ele irá compilar os ar
 ```cpp
 
 #include "include/graph.hpp"
+```
 
+* Utilização dentro de um programa CLI:
+
+```cpp
+int main(){
+
+    float x;
+    mc::principal objprincipal(x);
+    std::cout << "\n Insira a frêquencia desejada: ";
+    std::cin >> x;
+
+    return 0;
+}
 ```
 
 Lembrando que neste caso o arquivo que você está criando está **no mesmo** diretório da biblioteca.
@@ -94,13 +109,10 @@ Lembre de trocar o <seu_programa> pelo nome que você irá dar ao programa que d
 
 |Exemplos de comandos que podem ser utilizados | Resumo da funcionalidade|
 |---|---|
-
+| `mc::principal objprincipal(hz)` | Recebe apenas valores do tipo `float`, pois interpreta diversos dados de entrada para poder aprezentar a frequência desejada. |
 
 </div>
 
 ## Agradecimentos
-.
 
-.
-
-.
+ Assim como no ![README.md](https://github.com/MauricioPaivadaSilva/MCEpy) quero agradecer a minha pedagoga e orientadora do PIBIC, Ma. Flávia Manuella de Almeida Ksiaszczyk, por proporcionar a oportunidade de gerar tal trabalho. Agradeço também ao meu professor de física Prof. Dr. Rudinei Celso de Souza Jantsch que nos auxiliou com interpretações físicas dos fenômenos elétricos de forma mais aprofundada. E por fim agradeço também ao Prof. Me. Cláudio Kleina, que me auxiliou com problemas ligados a programação do OA.
