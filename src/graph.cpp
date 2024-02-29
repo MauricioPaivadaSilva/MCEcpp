@@ -126,15 +126,13 @@ auto mc::principal::Arrow(){ //Cira a ponta do eixo
 
 void mc::principal::exec(float hz){ //Executa toda a sequência que postra as janelas.
 
-  sf::Vector2u window_size = mc::principal::principal::window.getSize();
-
   while(window.isOpen()){
     sf::Event event;
     sf::Vector2u window_size = mc::principal::principal::window.getSize();
     position(window_size.x, window_size.y);
-    if((window_size.x < 800) && (window_size.y < 600)){
-      mc::principal::principal::window.setSize(sf::Vector2u(800, 600));
-    };
+//    if((window_size.x < 800) || (window_size.y < 600)){
+//     mc::principal::principal::window.setSize(sf::Vector2u(800, 600));
+//    };
     while(window.pollEvent(event)){
       if(event.type == sf::Event::Closed){
         window.close();
