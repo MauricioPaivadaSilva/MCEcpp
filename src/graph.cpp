@@ -15,7 +15,7 @@ mc::principal::principal(float hz): window(sf::VideoMode::getDesktopMode(), "MCE
   exec(hz);
 }
 
-auto mc::principal::funcSin(float hz){//Gerador dos dados para a criação do gráfico senoidal.
+auto mc::principal::funcSin(float hz){ //Gerador dos dados para a criação do gráfico senoidal.
   float Hz, cic, val_x, pos_x, pos_y, point, size_vec_x;
   Hz = hz;
   cic = Hz*360.0f;
@@ -23,12 +23,12 @@ auto mc::principal::funcSin(float hz){//Gerador dos dados para a criação do gr
   point = 0.0f;
 
   pos_x = POS_X;
-  size_vec_x = (4*pos_x) - pos_x;
+  size_vec_x = (4.0f*pos_x) - pos_x;
   pos_y = POS_Y;
 
   for(int i = 0; i < (int)cic; i++){
     float rad, y;
-    const float PI = 3.14f;
+    const float PI = 3.14159265358979323f;
     rad = (-point*PI)/180.0f;
     y = std::sin(10.0f * rad);
     data[i] = y;
@@ -42,7 +42,7 @@ auto mc::principal::funcSin(float hz){//Gerador dos dados para a criação do gr
   for(int i = 0; i < (int)cic; i++){
     l_func[i].position = sf::Vector2f((pos_x + val_x), ((pos_y-125.0f) + (data[i] * 100.0f)));
     l_func[i].color = sf::Color::Blue;
-    val_x += (size_vec_x / cic);
+    val_x += (size_vec_x / cic); // Dimenciona a função para que ela ocupe apenas o domínio do gráfico apresentado.
   };
 
   return l_func;
@@ -71,8 +71,8 @@ auto mc::principal::GraphFunc(){ //Cria  gráfico (layout)
 
   sf::VertexArray graph_func(sf::LineStrip, 5);
   graph_func[0].position = sf::Vector2f(pos_x, pos_y);
-  graph_func[1].position = sf::Vector2f((4 * pos_x), pos_y);
-  graph_func[2].position = sf::Vector2f((4 * pos_x), (pos_y - 250.0f));
+  graph_func[1].position = sf::Vector2f((4.0f * pos_x), pos_y);
+  graph_func[2].position = sf::Vector2f((4.0f * pos_x), (pos_y - 250.0f));
   graph_func[3].position = sf::Vector2f(pos_x, (pos_y - 250.0f));
   graph_func[4].position = sf::Vector2f(pos_x, pos_y);
 
@@ -96,7 +96,7 @@ auto mc::principal::Vector(){ //Cria o eixo "x" dentro do gráfico.
 
   sf::VertexArray vector(sf::LineStrip, 2);
   vector[0].position = sf::Vector2f(pos_x, (pos_y - (250.0f / 2.0f)));
-  vector[1].position = sf::Vector2f((4*pos_x), (pos_y - (250.0f/2.0f)));
+  vector[1].position = sf::Vector2f((4.0f*pos_x), (pos_y - (250.0f/2.0f)));
   
   vector[0].color = sf::Color::Black;
   vector[1].color = sf::Color::Black;
@@ -113,9 +113,9 @@ auto mc::principal::Arrow(){ //Cira a ponta do eixo
   float pos_y = (9.0f/10.0f) * (w_size_y);
 
   sf::VertexArray arrow(sf::Triangles, 3);
-  arrow[0].position = sf::Vector2f(((4*pos_x)-10), ((pos_y - (250.0f/2.0f)) - 5.0f));
-  arrow[1].position = sf::Vector2f(((4*pos_x)-10), (pos_y - ((250.0f/2.0f)) + 5.0f));
-  arrow[2].position = sf::Vector2f((4*pos_x), (pos_y - (250.0f/2.0f)));
+  arrow[0].position = sf::Vector2f(((4.0f*pos_x)-10), ((pos_y - (250.0f/2.0f)) - 5.0f));
+  arrow[1].position = sf::Vector2f(((4.0f*pos_x)-10), (pos_y - ((250.0f/2.0f)) + 5.0f));
+  arrow[2].position = sf::Vector2f((4.0f*pos_x), (pos_y - (250.0f/2.0f)));
 
   arrow[0].color = sf::Color::Black;
   arrow[1].color = sf::Color::Black;
@@ -127,12 +127,6 @@ auto mc::principal::Arrow(){ //Cira a ponta do eixo
 void mc::principal::exec(float hz){ //Executa toda a sequência que postra as janelas.
 
   sf::Vector2u window_size = mc::principal::principal::window.getSize();
-
-  window.setPosition(sf::Vector2(0, 0));
-  sf::RectangleShape bg;
-  bg.setOutlineColor(sf::Color::White);
-  bg.setSize(sf::Vector2f(window_size));
-  bg.setPosition(0, 0);
 
   while(window.isOpen()){
     sf::Event event;
@@ -146,8 +140,7 @@ void mc::principal::exec(float hz){ //Executa toda a sequência que postra as ja
         window.close();
       }
     };
-    window.clear();
-    window.draw(bg);
+    window.clear(sf::Color::White);
     window.draw(mc::principal::GraphFunc());
     window.draw(mc::principal::Vector());
     window.draw(mc::principal::Arrow());
