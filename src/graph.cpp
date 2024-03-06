@@ -23,7 +23,7 @@ auto mc::principal::funcSin(float hz){ //Gerador dos dados para a criação do g
   point = 0.0f;
 
   pos_x = POS_X;
-  size_vec_x = (4.0f*pos_x) - pos_x;
+  size_vec_x = (9.0f*pos_x) - pos_x;
   pos_y = POS_Y;
 
   for(int i = 0; i < (int)cic; i++){
@@ -32,7 +32,7 @@ auto mc::principal::funcSin(float hz){ //Gerador dos dados para a criação do g
     rad = (-point*PI)/180.0f;
     y = std::sin(10.0f * rad);
     data[i] = y;
-    point += 0.1f;
+    point += 1.0f/10.0f;
   };
 
   sf::VertexArray l_func(sf::LineStrip, (int)cic);
@@ -52,7 +52,7 @@ void mc::principal::position(float x_size, float y_size){ //Função para gerar 
 //  sf::Vector2u window_size = mc::principal::principal::window.getSize();
   float w_size_x = x_size;
   float w_size_y = y_size;
-  float pos_x = (w_size_x/5);
+  float pos_x = (1.0f/10.0f)*(w_size_x);
   float pos_y = (9.0f/10.0f) * (w_size_y);
 
   POS_X = pos_x;
@@ -66,13 +66,13 @@ auto mc::principal::GraphFunc(){ //Cria  gráfico (layout)
   sf::Vector2u window_size = mc::principal::principal::window.getSize();
   float w_size_x = window_size.x;
   float w_size_y = window_size.y;
-  float pos_x = (w_size_x / 5);
+  float pos_x = (1.0f/10.0f)*(w_size_x);
   float pos_y = (9.0f/10.0f) * (w_size_y);
 
   sf::VertexArray graph_func(sf::LineStrip, 5);
   graph_func[0].position = sf::Vector2f(pos_x, pos_y);
-  graph_func[1].position = sf::Vector2f((4.0f * pos_x), pos_y);
-  graph_func[2].position = sf::Vector2f((4.0f * pos_x), (pos_y - 250.0f));
+  graph_func[1].position = sf::Vector2f((9.0f * pos_x), pos_y);
+  graph_func[2].position = sf::Vector2f((9.0f * pos_x), (pos_y - 250.0f));
   graph_func[3].position = sf::Vector2f(pos_x, (pos_y - 250.0f));
   graph_func[4].position = sf::Vector2f(pos_x, pos_y);
 
@@ -91,12 +91,12 @@ auto mc::principal::Vector(){ //Cria o eixo "x" dentro do gráfico.
   sf::Vector2u window_size = mc::principal::principal::window.getSize();
   float w_size_x = window_size.x;
   float w_size_y = window_size.y;
-  float pos_x = (w_size_x / 5);
+  float pos_x = (1.0f/10.0f)*(w_size_x);
   float pos_y = (9.0f/10.0f) * (w_size_y);
 
   sf::VertexArray vector(sf::LineStrip, 2);
   vector[0].position = sf::Vector2f(pos_x, (pos_y - (250.0f / 2.0f)));
-  vector[1].position = sf::Vector2f((4.0f*pos_x), (pos_y - (250.0f/2.0f)));
+  vector[1].position = sf::Vector2f((9.0f*pos_x), (pos_y - (250.0f/2.0f)));
   
   vector[0].color = sf::Color::Black;
   vector[1].color = sf::Color::Black;
@@ -109,13 +109,13 @@ auto mc::principal::Arrow(){ //Cira a ponta do eixo
   sf::Vector2u window_size = mc::principal::principal::window.getSize();
   float w_size_x = window_size.x;
   float w_size_y = window_size.y;
-  float pos_x = (w_size_x / 5.0f);
+  float pos_x = (1.0f/10.0f)*(w_size_x);
   float pos_y = (9.0f/10.0f) * (w_size_y);
 
   sf::VertexArray arrow(sf::Triangles, 3);
-  arrow[0].position = sf::Vector2f(((4.0f*pos_x)-10), ((pos_y - (250.0f/2.0f)) - 5.0f));
-  arrow[1].position = sf::Vector2f(((4.0f*pos_x)-10), (pos_y - ((250.0f/2.0f)) + 5.0f));
-  arrow[2].position = sf::Vector2f((4.0f*pos_x), (pos_y - (250.0f/2.0f)));
+  arrow[0].position = sf::Vector2f(((9.0f*pos_x)-10), ((pos_y - (250.0f/2.0f)) - 5.0f));
+  arrow[1].position = sf::Vector2f(((9.0f*pos_x)-10), (pos_y - ((250.0f/2.0f)) + 5.0f));
+  arrow[2].position = sf::Vector2f((9.0f*pos_x), (pos_y - (250.0f/2.0f)));
 
   arrow[0].color = sf::Color::Black;
   arrow[1].color = sf::Color::Black;
