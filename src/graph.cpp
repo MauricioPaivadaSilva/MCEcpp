@@ -11,6 +11,9 @@
 float POS_X, POS_Y;
 
 mc::principal::principal(float hz): window(sf::VideoMode::getDesktopMode(), "MCEcpp"){
+  if(hz < 0.0f){
+    hz = 0.0f;
+  };
   position(window.getSize().x, window.getSize().y);
   exec(hz);
 }
@@ -52,8 +55,9 @@ void mc::principal::position(float x_size, float y_size){ //Função para gerar 
 //  sf::Vector2u window_size = mc::principal::principal::window.getSize();
   float w_size_x = x_size;
   float w_size_y = y_size;
-  float pos_x = (1.0f/10.0f)*(w_size_x);
-  float pos_y = (9.0f/10.0f) * (w_size_y);
+  float pos_x, pos_y;
+  pos_x = (1.0f/10.0f)*(w_size_x);
+  pos_y = (9.0f/10.0f) * (w_size_y);
 
   POS_X = pos_x;
   POS_Y = pos_y;
@@ -133,7 +137,7 @@ void mc::principal::exec(float hz){ //Executa toda a sequência que postra as ja
     while(window.pollEvent(event)){
       if(event.type == sf::Event::Closed){
         window.close();
-      }
+      };
     };
     window.clear(sf::Color::White);
     window.draw(mc::principal::GraphFunc());
