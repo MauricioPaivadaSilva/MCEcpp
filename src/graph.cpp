@@ -18,6 +18,17 @@ mc::principal::principal(float hz): window(sf::VideoMode::getDesktopMode(), "MCE
   exec(hz);
 }
 
+auto mc::principal::cicTrig(){
+  float bordaTamanho = 2.0f;
+  sf::CircleShape ciclo(100.0f + bordaTamanho);
+  ciclo.setPosition(((mc::principal::principal::window.getSize().x / 2.0f) - ciclo.getRadius()), ((mc::principal::principal::window.getSize().y / 2.0f) - ciclo.getRadius() - 150.0f));
+  ciclo.setFillColor(sf::Color::Transparent);
+  ciclo.setOutlineThickness(bordaTamanho);
+  ciclo.setOutlineColor(sf::Color::Black);
+
+  return ciclo;
+}
+
 auto mc::principal::funcSin(float hz, int n){ //Gerador dos dados para a criação do gráfico senoidal.
   float Hz, cic, val_x, pos_x, pos_y, point, size_vec_x;
   Hz = hz;
@@ -145,6 +156,7 @@ void mc::principal::exec(float hz){ //Executa toda a sequência que postra as ja
     window.draw(mc::principal::funcSin(hz, -1));
     window.draw(mc::principal::funcSin(hz, 0));
     window.draw(mc::principal::funcSin(hz, 1));
+    window.draw(mc::principal::cicTrig());
     window.display();
   }
 }
