@@ -18,7 +18,7 @@ mc::principal::principal(float hz): window(sf::VideoMode::getDesktopMode(), "MCE
   exec(hz);
 }
 
-auto mc::principal::funcSin(float hz){ //Gerador dos dados para a criação do gráfico senoidal.
+auto mc::principal::funcSin(float hz, int n){ //Gerador dos dados para a criação do gráfico senoidal.
   float Hz, cic, val_x, pos_x, pos_y, point, size_vec_x;
   Hz = hz;
   cic = Hz*360.0f;
@@ -41,9 +41,8 @@ auto mc::principal::funcSin(float hz){ //Gerador dos dados para a criação do g
   sf::VertexArray l_func(sf::LineStrip, (int)cic);
   val_x = 0.0f;
 
-  
   for(int i = 0; i < (int)cic; i++){
-    l_func[i].position = sf::Vector2f((pos_x + val_x), ((pos_y-125.0f) + (data[i] * 100.0f)));
+    l_func[i].position = sf::Vector2f((pos_x + val_x), ((pos_y-125.0f+(float)n) + (data[i] * 100.0f)));
     l_func[i].color = sf::Color::Blue;
     val_x += (size_vec_x / cic); // Dimenciona a função para que ela ocupe apenas o domínio do gráfico apresentado.
   };
@@ -143,7 +142,9 @@ void mc::principal::exec(float hz){ //Executa toda a sequência que postra as ja
     window.draw(mc::principal::GraphFunc());
     window.draw(mc::principal::Vector());
     window.draw(mc::principal::Arrow());
-    window.draw(mc::principal::funcSin(hz));
+    window.draw(mc::principal::funcSin(hz, -1));
+    window.draw(mc::principal::funcSin(hz, 0));
+    window.draw(mc::principal::funcSin(hz, 1));
     window.display();
   }
 }
