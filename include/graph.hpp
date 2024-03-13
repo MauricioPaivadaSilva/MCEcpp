@@ -25,6 +25,7 @@ namespace mc{
       auto Vector();
       auto Arrow();
       auto cicTrig();
+      auto GraphCic();
       auto funcSin(const float hz, const int n);
       void position(float x_size, float y_size);
   };
