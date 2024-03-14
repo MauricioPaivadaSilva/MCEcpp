@@ -18,7 +18,7 @@ namespace mc{
     private:
       sf::RenderWindow window;
     public:
-      principal(float hz);
+      principal(float hz, float a, float b);
       ~principal();
       void exec(const float hz);
       auto GraphFunc();
@@ -26,6 +26,10 @@ namespace mc{
       auto Arrow();
       auto cicTrig();
       auto GraphCic();
+      auto Xeixo();
+      auto Yeixo();
+      auto CicArrowY();
+      auto CicArrowX();
       auto funcSin(const float hz, const int n);
       void position(float x_size, float y_size);
   };

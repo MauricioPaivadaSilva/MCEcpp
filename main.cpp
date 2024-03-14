@@ -2,7 +2,7 @@
 #include "include/graph.hpp"
 
 void exec(float hz){
-  mc::principal objprincipal(hz);
+  mc::principal objprincipal(hz, 0.0, 0.0);
 }
 
 int main(){

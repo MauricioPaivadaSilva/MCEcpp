@@ -10,12 +10,84 @@
 
 float POS_X, POS_Y;
 
-mc::principal::principal(float hz): window(sf::VideoMode::getDesktopMode(), "MCEcpp"){
+mc::principal::principal(float hz, float a, float b): window(sf::VideoMode::getDesktopMode(), "MCEcpp"){
   if(hz < 0.0f){
     hz = 0.0f;
   };
   position(window.getSize().x, window.getSize().y);
   exec(hz);
+}
+
+auto mc::principal::CicArrowY(){
+sf::Vector2u window_size = mc::principal::principal::window.getSize();
+  float w_size_x = window_size.x;
+  float w_size_y = window_size.y;
+  float pos_x = (w_size_x / 2.0f) - 112.5f;
+  float pos_y = (w_size_y * (1.0f / 10.0f) + 105.0f); 
+
+  sf::VertexArray arrow(sf::Triangles, 3);
+  arrow[0].position = sf::Vector2f(((pos_x + 110.0f)- 5.0f), (((pos_y - 110.0f) + 10.0f)));
+  arrow[1].position = sf::Vector2f(((pos_x + 110.0f)+5.0f), ((pos_y - 110.0f) + 10.0f));
+  arrow[2].position = sf::Vector2f((pos_x + 110.0f), (pos_y - 110.0f));
+
+  arrow[0].color = sf::Color::Black;
+  arrow[1].color = sf::Color::Black;
+  arrow[2].color = sf::Color::Black;
+
+  return arrow;
+}
+
+auto mc::principal::Yeixo(){
+ sf::Vector2u window_size = mc::principal::principal::window.getSize();
+  float w_size_x = window_size.x;
+  float w_size_y = window_size.y;
+  float pos_x = (w_size_x / 2.0f) - 112.5f;
+  float pos_y = (w_size_y * (1.0f / 10.0f) - 12.0f);
+
+  sf::VertexArray vector(sf::LineStrip, 2);
+  vector[0].position = sf::Vector2f(pos_x, pos_y);
+  vector[1].position = sf::Vector2f(pos_x, (pos_y + 230.0f));
+  
+  vector[0].color = sf::Color::Black;
+  vector[1].color = sf::Color::Black;
+  
+  return vector;
+}
+
+auto mc::principal::CicArrowX(){
+  sf::Vector2u window_size = mc::principal::principal::window.getSize();
+  float w_size_x = window_size.x;
+  float w_size_y = window_size.y;
+  float pos_x = w_size_x / 2.0f - 110.0f;
+  float pos_y = (w_size_y * (1.0f / 10.0f) + 100.0f); 
+
+  sf::VertexArray arrow(sf::Triangles, 3);
+  arrow[0].position = sf::Vector2f(((220.0f + pos_x)-10), ((pos_y - 5.0f)));
+  arrow[1].position = sf::Vector2f(((220.0f + pos_x)-10), (pos_y + 5.0f));
+  arrow[2].position = sf::Vector2f((220.0f + pos_x), (pos_y));
+
+  arrow[0].color = sf::Color::Black;
+  arrow[1].color = sf::Color::Black;
+  arrow[2].color = sf::Color::Black;
+
+  return arrow;
+}
+
+auto mc::principal::Xeixo(){
+  sf::Vector2u window_size = mc::principal::principal::window.getSize();
+  float w_size_x = window_size.x;
+  float w_size_y = window_size.y;
+  float pos_x = w_size_x / 2.0f - 110.0f;
+  float pos_y = (w_size_y * (1.0f / 10.0f) + 100.0f);
+
+  sf::VertexArray vector(sf::LineStrip, 2);
+  vector[0].position = sf::Vector2f(pos_x, pos_y);
+  vector[1].position = sf::Vector2f((pos_x + 220.0f), pos_y);
+  
+  vector[0].color = sf::Color::Black;
+  vector[1].color = sf::Color::Black;
+  
+  return vector;
 }
 
 auto mc::principal::GraphCic(){
@@ -24,7 +96,7 @@ auto mc::principal::GraphCic(){
   pos_y = (mc::principal::principal::window.getSize().y * (1.0f / 10.0f)) - 10.0f;
 
   sf::RectangleShape base;
-  base.setSize(sf::Vector2f(220.0f,220.0f));
+  base.setSize(sf::Vector2f(225.0f,225.0f));
   base.setOutlineColor(sf::Color::Black);
   base.setOutlineThickness(2.0f);
   base.setPosition(pos_x, pos_y);
@@ -171,6 +243,10 @@ void mc::principal::exec(float hz){ //Executa toda a sequência que postra as ja
     window.draw(mc::principal::funcSin(hz, 0));
     window.draw(mc::principal::funcSin(hz, 1));
     window.draw(mc::principal::GraphCic());
+    window.draw(mc::principal::Xeixo());
+    window.draw(mc::principal::Yeixo());
+    window.draw(mc::principal::CicArrowY());
+    window.draw(mc::principal::CicArrowX());
     window.draw(mc::principal::cicTrig());
     window.display();
   }
