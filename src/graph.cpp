@@ -15,28 +15,23 @@ mc::principal::principal(float hz, float a, float b): window(sf::VideoMode::getD
   if(hz < 0.0f){
     hz = 0.0f;
   };
+  window.setFramerateLimit(4);
   position(window.getSize().x, window.getSize().y);
   exec(hz, a, b);
 }
 
-auto mc::principal::VectorComplex(float num1, float num2){
-  float raio = 1;
-  sf::VertexArray complexVector(sf::Lines, 2);
-
-  std::vector<sf::Vertex> points;
-  for (float theta = 0; theta < 2 * M_PI; theta += 0.01){
-    float x = raio * cos(theta);
-    float y = raio * sin(theta);
-    points.emplace_back(sf::Vector2f(x, y));
-  }
+auto mc::principal::VectorComplex(float num1, float num2, int n){
+  float Ox = (mc::principal::principal::window.getSize().x / 2.0f) + 2.0f;
+  float Oy = (mc::principal::principal::window.getSize().y * (1.0f / 10.0f)) + 100.0f;
+  sf::VertexArray complexVector(sf::LineStrip, 2);
 
   float p = sqrt(pow(num1, 2) + pow(num2, 2));
   float vec_x = num1 / p;
   float vec_y = num2 / p;
 
-  complexVector[0].position = sf::Vector2f(100.0f, 0.0f);
-  complexVector[0].color = sf::Color::Red;
-  complexVector[1].position = sf::Vector2f((100.0f + vec_x), (vec_y));
+  complexVector[0].position = sf::Vector2f(Ox, (Oy+(float)n));
+  complexVector[0].color = sf::Color::Blue;
+  complexVector[1].position = sf::Vector2f((Ox + (vec_x * 100.0f)), ((Oy + (vec_y * -100.0f))+(float)n));
   complexVector[1].color = sf::Color::Blue;
 
   return complexVector;
@@ -272,7 +267,9 @@ void mc::principal::exec(float hz, float a, float b){ //Executa toda a sequênci
     window.draw(mc::principal::CicArrowY());
     window.draw(mc::principal::CicArrowX());
     window.draw(mc::principal::cicTrig());
-    window.draw(mc::principal::VectorComplex(a, b));
+    window.draw(mc::principal::VectorComplex(a, b, 0));
+    window.draw(mc::principal::VectorComplex(a, b, 1));
+    window.draw(mc::principal::VectorComplex(a, b, -1));
     window.display();
   }
 }

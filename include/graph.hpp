@@ -30,7 +30,7 @@ namespace mc{
       auto Yeixo();
       auto CicArrowY();
       auto CicArrowX();
-      auto VectorComplex(const float a, const float b);
+      auto VectorComplex(const float a, const float b, const int n);
       auto funcSin(const float hz, const int n);
       void position(float x_size, float y_size);
   };
