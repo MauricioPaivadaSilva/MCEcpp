@@ -11,7 +11,7 @@
 float POS_X, POS_Y;
 
 mc::principal::principal(float hz): window(sf::VideoMode::getDesktopMode(), "MCEcpp"){
-  if(hz < 0.0f){
+  if((hz < 0.0f) || (hz > 1000.0f)){
     hz = 0.0f;
   };
   position(window.getSize().x, window.getSize().y);

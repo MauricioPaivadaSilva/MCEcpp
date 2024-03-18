@@ -2,6 +2,7 @@
 #include "include/graph.hpp"
 
 void exec(float hz){
+  std::cout << hz << std::endl;
   mc::principal objprincipal(hz);
 }
 
