@@ -20,7 +20,7 @@ namespace mc{
     public:
       principal(float hz, float a, float b);
       ~principal();
-      void exec(const float hz);
+      void exec(const float hz, const float a, const float b);
       auto GraphFunc();
       auto Vector();
       auto Arrow();
@@ -30,6 +30,7 @@ namespace mc{
       auto Yeixo();
       auto CicArrowY();
       auto CicArrowX();
+      auto VectorComplex(const float a, const float b);
       auto funcSin(const float hz, const int n);
       void position(float x_size, float y_size);
   };

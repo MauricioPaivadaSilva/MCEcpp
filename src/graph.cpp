@@ -4,22 +4,46 @@
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Window/WindowStyle.hpp>
 #include <cmath>
 
 #include "../include/graph.hpp"
 
 float POS_X, POS_Y;
 
-mc::principal::principal(float hz, float a, float b): window(sf::VideoMode::getDesktopMode(), "MCEcpp"){
+mc::principal::principal(float hz, float a, float b): window(sf::VideoMode::getDesktopMode(), "MCEcpp", sf::Style::Close){
   if(hz < 0.0f){
     hz = 0.0f;
   };
   position(window.getSize().x, window.getSize().y);
-  exec(hz);
+  exec(hz, a, b);
+}
+
+auto mc::principal::VectorComplex(float num1, float num2){
+  float raio = 1;
+  sf::VertexArray complexVector(sf::Lines, 2);
+
+  std::vector<sf::Vertex> points;
+  for (float theta = 0; theta < 2 * M_PI; theta += 0.01){
+    float x = raio * cos(theta);
+    float y = raio * sin(theta);
+    points.emplace_back(sf::Vector2f(x, y));
+  }
+
+  float p = sqrt(pow(num1, 2) + pow(num2, 2));
+  float vec_x = num1 / p;
+  float vec_y = num2 / p;
+
+  complexVector[0].position = sf::Vector2f(100.0f, 0.0f);
+  complexVector[0].color = sf::Color::Red;
+  complexVector[1].position = sf::Vector2f((100.0f + vec_x), (vec_y));
+  complexVector[1].color = sf::Color::Blue;
+
+  return complexVector;
 }
 
 auto mc::principal::CicArrowY(){
-sf::Vector2u window_size = mc::principal::principal::window.getSize();
+  sf::Vector2u window_size = mc::principal::principal::window.getSize();
   float w_size_x = window_size.x;
   float w_size_y = window_size.y;
   float pos_x = (w_size_x / 2.0f) - 107.5f;
@@ -224,7 +248,7 @@ auto mc::principal::Arrow(){ //Cira a ponta do eixo
   return arrow;
 }
 
-void mc::principal::exec(float hz){ //Executa toda a sequência que postra as janelas.
+void mc::principal::exec(float hz, float a, float b){ //Executa toda a sequência que postra as janelas.
 
   while(window.isOpen()){
     sf::Event event;
@@ -248,6 +272,7 @@ void mc::principal::exec(float hz){ //Executa toda a sequência que postra as ja
     window.draw(mc::principal::CicArrowY());
     window.draw(mc::principal::CicArrowX());
     window.draw(mc::principal::cicTrig());
+    window.draw(mc::principal::VectorComplex(a, b));
     window.display();
   }
 }
