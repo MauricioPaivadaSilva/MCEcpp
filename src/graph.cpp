@@ -22,8 +22,8 @@ auto mc::principal::CicArrowY(){
 sf::Vector2u window_size = mc::principal::principal::window.getSize();
   float w_size_x = window_size.x;
   float w_size_y = window_size.y;
-  float pos_x = (w_size_x / 2.0f) - 112.5f;
-  float pos_y = (w_size_y * (1.0f / 10.0f) + 105.0f); 
+  float pos_x = (w_size_x / 2.0f) - 107.5f;
+  float pos_y = (w_size_y * (1.0f / 10.0f) + 100.0f); 
 
   sf::VertexArray arrow(sf::Triangles, 3);
   arrow[0].position = sf::Vector2f(((pos_x + 110.0f)- 5.0f), (((pos_y - 110.0f) + 10.0f)));
@@ -41,7 +41,7 @@ auto mc::principal::Yeixo(){
  sf::Vector2u window_size = mc::principal::principal::window.getSize();
   float w_size_x = window_size.x;
   float w_size_y = window_size.y;
-  float pos_x = (w_size_x / 2.0f) - 112.5f;
+  float pos_x = (w_size_x / 2.0f) + 2.5f;
   float pos_y = (w_size_y * (1.0f / 10.0f) - 12.0f);
 
   sf::VertexArray vector(sf::LineStrip, 2);
@@ -62,9 +62,9 @@ auto mc::principal::CicArrowX(){
   float pos_y = (w_size_y * (1.0f / 10.0f) + 100.0f); 
 
   sf::VertexArray arrow(sf::Triangles, 3);
-  arrow[0].position = sf::Vector2f(((220.0f + pos_x)-10), ((pos_y - 5.0f)));
-  arrow[1].position = sf::Vector2f(((220.0f + pos_x)-10), (pos_y + 5.0f));
-  arrow[2].position = sf::Vector2f((220.0f + pos_x), (pos_y));
+  arrow[0].position = sf::Vector2f(((225.0f + pos_x)-10), ((pos_y - 5.0f)));
+  arrow[1].position = sf::Vector2f(((225.0f + pos_x)-10), (pos_y + 5.0f));
+  arrow[2].position = sf::Vector2f((225.0f + pos_x), (pos_y));
 
   arrow[0].color = sf::Color::Black;
   arrow[1].color = sf::Color::Black;
@@ -82,7 +82,7 @@ auto mc::principal::Xeixo(){
 
   sf::VertexArray vector(sf::LineStrip, 2);
   vector[0].position = sf::Vector2f(pos_x, pos_y);
-  vector[1].position = sf::Vector2f((pos_x + 220.0f), pos_y);
+  vector[1].position = sf::Vector2f((pos_x + 225.0f), pos_y);
   
   vector[0].color = sf::Color::Black;
   vector[1].color = sf::Color::Black;
