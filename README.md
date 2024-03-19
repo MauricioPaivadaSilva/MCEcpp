@@ -17,7 +17,7 @@
 </div>
 
 ## Sobre a biblioteca
-A presente biblioteca aprensenta-se em sua *versão 0.1.1*, sendo a reescrita da biblioteca [MCEpy](https://github.com/MauricioPaivadaSilva/MCEpy) em C++, com o objetivo de facilitar a implementação e a possibilidade de uso em mais trabalhos.
+A presente biblioteca aprensenta-se em sua *versão 0.1.2*, sendo a reescrita da biblioteca [MCEpy](https://github.com/MauricioPaivadaSilva/MCEpy) em C++, com o objetivo de facilitar a implementação e a possibilidade de uso em mais trabalhos.
 
 Devido a essas condições o README.md tem a mesma base e os funcionamentos da aplicação/biblioteca serão os mesmos.
 

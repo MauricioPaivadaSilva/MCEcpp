@@ -18,13 +18,20 @@ namespace mc{
     private:
       sf::RenderWindow window;
     public:
-      principal(float hz);
+      principal(float hz, float a, float b);
       ~principal();
-      void exec(const float hz);
+      void exec(const float hz, const float a, const float b);
       auto GraphFunc();
       auto Vector();
       auto Arrow();
-      auto funcSin(const float hz);
+      auto cicTrig();
+      auto GraphCic();
+      auto Xeixo();
+      auto Yeixo();
+      auto CicArrowY();
+      auto CicArrowX();
+      auto VectorComplex(const float a, const float b, const int n);
+      auto funcSin(const float hz, const int n);
       void position(float x_size, float y_size);
   };
 }
