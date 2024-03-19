@@ -1,10 +1,10 @@
-#include "../include/SFML-2.6.1/include/SFML/Graphics/PrimitiveType.hpp"
-#include "../include/SFML-2.6.1/include/SFML/Graphics/RectangleShape.hpp"
-#include "../include/SFML-2.6.1/include/SFML/Graphics/VertexArray.hpp"
-#include "../include/SFML-2.6.1/include/SFML/System/Vector2.hpp"
-#include "../include/SFML-2.6.1/include/SFML/Window/Event.hpp"
-#include "../include/SFML-2.6.1/include/SFML/Graphics.hpp"
-#include "../include/SFML-2.6.1/include/SFML/Window/WindowStyle.hpp"
+#include <SFML/Graphics/PrimitiveType.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/VertexArray.hpp>
+#include <SFML/System/Vector2.hpp>
+#include <SFML/Window/Event.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/Window/WindowStyle.hpp>
 #include <cmath>
 
 #include "../include/graph.hpp"
