@@ -11,18 +11,18 @@
 
 float POS_X, POS_Y;
 
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 mc::principal::principal(float hz): window(sf::VideoMode::getDesktopMode(), "MCEcpp"){
   if((hz < 0.0f) || (hz > 1000.0f)){
     hz = 0.0f;
   };
-=======
+=======*/
 mc::principal::principal(float hz, float a, float b): window(sf::VideoMode::getDesktopMode(), "MCEcpp", sf::Style::Close){
   if(hz < 0.0f){
     hz = 0.0f;
   };
   window.setFramerateLimit(4);
->>>>>>> alteracoes-refatoracoes
+//>>>>>>> alteracoes-refatoracoes
   position(window.getSize().x, window.getSize().y);
   exec(hz, a, b);
 }
