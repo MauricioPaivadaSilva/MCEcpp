@@ -1,14 +1,14 @@
 #include <iostream>
 #include "include/graph.hpp"
 
-<<<<<<< HEAD
-void exec(float hz){
-  std::cout << hz << std::endl;
-  mc::principal objprincipal(hz);
-=======
+//<<<<<<< HEAD
+//void exec(float hz){
+//  std::cout << hz << std::endl;
+//  mc::principal objprincipal(hz);
+//=======
 void exec(float hz, float num1, float num2){
   mc::principal objprincipal(hz, num1, num2);
->>>>>>> alteracoes-refatoracoes
+//>>>>>>> alteracoes-refatoracoes
 }
 
 int main(){

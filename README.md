@@ -17,7 +17,7 @@
 </div>
 
 ## Sobre a biblioteca
-A presente biblioteca aprensenta-se em sua *versão 0.1.2*, sendo a reescrita da biblioteca [MCEpy](https://github.com/MauricioPaivadaSilva/MCEpy) em C++, com o objetivo de facilitar a implementação e a possibilidade de uso em mais trabalhos.
+A presente biblioteca aprensenta-se em sua *versão 0.2.0*, sendo a reescrita da biblioteca [MCEpy](https://github.com/MauricioPaivadaSilva/MCEpy) em C++, com o objetivo de facilitar a implementação e a possibilidade de uso em mais trabalhos.
 
 Devido a essas condições o README.md tem a mesma base e os funcionamentos da aplicação/biblioteca serão os mesmos.
 
@@ -46,17 +46,18 @@ O presente projeto tem como motivação o trabalho desenvolvido pelo LABin - Lab
 
 ### Forma de Instalação
 
-Dentro do diretório do projeto digite o comando `make`. Ele irá compilar os arquivos do projeto.
+Dentro do diretório do projeto digite o comando `make`. Ele irá compilar os arquivos do projeto. **É necessário ter instalada a biblioteca SFML corretamente em seu ambiente de desenvolvimento.**
 
 ## Funcionalidades esperadas
 
-- [ ] Receber dados de valores puramente reais;
-- [ ] Receber dados de números complexos;
+- [ ] ~Receber dados de valores puramente reais;~
+- [ ] ~Receber dados de números complexos;~
+- [X] Ordenação dos dados de recepção para interpretar como valor complexo;
 - [X] Receber os dados de frequência;
 - [X] Gerar o gráfico de função senoidal;
-- [ ] Gerar o ciclo trigonométrico;
-- [ ] Gerar o vetor dentro do ciclo trigonométrico;
-- [ ] Apresentar mais de um gráfico em uma única tela;
+- [X] Gerar o ciclo trigonométrico;
+- [X] Gerar o vetor dentro do ciclo trigonométrico;
+- [X] Apresentar mais de um gráfico em uma única tela;
 - [ ] Fazer a animação do ciclo trigonométrico;
 - [ ] Fazer a animação do gráfico da função senoidal.
 
@@ -76,14 +77,26 @@ Dentro do diretório do projeto digite o comando `make`. Ele irá compilar os ar
 * Utilização dentro de um programa CLI:
 
 ```cpp
+#include <iostream>
+#include "include/graph.hpp"
+
+void exec(float hz, float num1, float num2){
+  mc::principal objprincipal(hz, num1, num2);
+}
+
 int main(){
+  
+  float hz, num1, num2;
 
-    float x;
-    mc::principal objprincipal(x);
-    std::cout << "\n Insira a frêquencia desejada: ";
-    std::cin >> x;
+  std::cout << "\n Digite a frequência: ";
+  std::cin >> hz; std::cout << "" << std::endl;
 
-    return 0;
+  std::cout <<"\n Digite o primeiro valor para o vetor complexo: "; std::cin >> num1; std::cout << "" << std::endl;
+  std::cout <<"\n Digite o segundo valor para o vetor complexo: "; std::cin >> num2; std::cout << "" << std::endl;
+
+  exec(hz, num1, num2);
+
+  return 0;
 }
 ```
 
@@ -109,7 +122,7 @@ Lembre de trocar o <seu_programa> pelo nome que você irá dar ao programa que d
 
 |Exemplos de comandos que podem ser utilizados | Resumo da funcionalidade|
 |---|---|
-| `mc::principal objprincipal(hz)` | Recebe apenas valores do tipo `float`, pois interpreta diversos dados de entrada para poder aprezentar a frequência desejada. |
+| `mc::principal objprincipal(hz, a, b)` | Recebe apenas valores do tipo `float`, pois interpreta diversos dados de entrada para poder aprezentar a frequência desejada. |
 
 </div>
 
